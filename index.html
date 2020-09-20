@@ -32,13 +32,13 @@
 
   <p id="pulsaboton" style="visibility: visible;color: white;font-family: 'Comic Sans MS';font-size:30px">
     Pulsa un botón en el controlador para conectar.</p>
-  <img id="caballo" src="img/caballo.jpg" style="visibility:hidden" width="830" height="431"/>
-  <img id="elefante" src="img/elefante.jpg" style="visibility:hidden" width="830" height="431"/>
-  <img id="gallo" src="img/gallo.jpg" style="visibility:hidden" width="830" height="431"/>
-  <img id="oveja" src="img/oveja.jpg" style="visibility:hidden" width="830" height="431"/>
-  <img id="pajaro" src="img/pajaro.jpg" style="visibility:hidden" width="830" height="431"/>
-  <img id="pato" src="img/pato.jpg" style="visibility:hidden" width="830" height="431"/>
-  <img id="perro" src="img/perro.jpg" style="visibility:hidden" width="830" height="431"/>
+  <img id="caballo" src="img/caballo.jpg" style="display:none" width="830" height="431"/>
+  <img id="elefante" src="img/elefante.jpg" style="display:none" width="830" height="431"/>
+  <img id="gallo" src="img/gallo.jpg" style="display:none" width="830" height="431"/>
+  <img id="oveja" src="img/oveja.jpg" style="display:none" width="830" height="431"/>
+  <img id="pajaro" src="img/pajaro.jpg" style="display:none" width="830" height="431"/>
+  <img id="pato" src="img/pato.jpg" style="display:none" width="830" height="431"/>
+  <img id="perro" src="img/perro.jpg" style="display:none" width="830" height="431"/>
 
   <div id="buttons" style="visibility: hidden; flex-direction: column;"></div>
 
@@ -51,72 +51,72 @@
     vercaballo = function()
     {
       x=document.getElementById("caballo")
-      x.style.visibility="visible";
+      x.style.display="block";
     }
     ocultarcaballo = function()
     {
       x=document.getElementById("caballo")
-      x.style.visibility="hidden";
+      x.style.display="none";
     }
     verelefante = function()
     {
       x=document.getElementById("elefante")
-      x.style.visibility="visible";
+      x.style.display="block";
     }
     ocultarelefante = function()
     {
       x=document.getElementById("elefante")
-      x.style.visibility="hidden";
+      x.style.display="none";
     }
     vergallo = function()
     {
       x=document.getElementById("gallo")
-      x.style.visibility="visible";
+      x.style.display="block";
     }
     ocultargallo = function()
     {
       x=document.getElementById("gallo")
-      x.style.visibility="hidden";
+      x.style.display="none";
     }
     veroveja = function()
     {
       x=document.getElementById("oveja")
-      x.style.visibility="visible";
+      x.style.display="block";
     }
     ocultaroveja = function()
     {
       x=document.getElementById("oveja")
-      x.style.visibility="hidden";
+      x.style.display="none";
     }
     verpajaro = function()
     {
       x=document.getElementById("pajaro")
-      x.style.visibility="visible";
+      x.style.display="block";
     }
     ocultarpajaro = function()
     {
       x=document.getElementById("pajaro")
-      x.style.visibility="hidden";
+      x.style.display="none";
     }
     verpato = function()
     {
       x=document.getElementById("pato")
-      x.style.visibility="visible";
+      x.style.display="block";
     }
     ocultarpato = function()
     {
       x=document.getElementById("pato")
-      x.style.visibility="hidden";
+      x.style.display="none";
     }
     verperro = function()
     {
       x=document.getElementById("perro")
-      x.style.visibility="visible";
+      x.style.display="block";
     }
     ocultarperro = function()
     {
       x=document.getElementById("perro")
-      x.style.visibility="hidden";
+      x.style.display="none";
     }
     var boton_pulsado=0
 
