@@ -1,0 +1,233 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body style="background: #222222">
+
+  <!-- Add your site or application content here -->
+  <p style="color: white;font-family: 'Comic Sans MS';font-size:30px">Pulsa un botón para ver el animal y escucharlo.</p>
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <p id="pulsaboton" style="visibility: visible;color: white;font-family: 'Comic Sans MS';font-size:30px">
+    Pulsa un botón en el controlador para conectar.</p>
+  <img id="caballo" src="img/caballo.jpg" style="visibility:hidden" width="830" height="431"/>
+  <img id="elefante" src="img/elefante.jpg" style="visibility:hidden" width="830" height="431"/>
+  <img id="gallo" src="img/gallo.jpg" style="visibility:hidden" width="830" height="431"/>
+  <img id="oveja" src="img/oveja.jpg" style="visibility:hidden" width="830" height="431"/>
+  <img id="pajaro" src="img/pajaro.jpg" style="visibility:hidden" width="830" height="431"/>
+  <img id="pato" src="img/pato.jpg" style="visibility:hidden" width="830" height="431"/>
+  <img id="perro" src="img/perro.jpg" style="visibility:hidden" width="830" height="431"/>
+
+  <div id="buttons" style="visibility: hidden; flex-direction: column;"></div>
+
+  <script>
+    ocultarconectar = function()
+    {
+      x=document.getElementById("pulsaboton")
+      x.style.visibility="hidden";
+    }
+    vercaballo = function()
+    {
+      x=document.getElementById("caballo")
+      x.style.visibility="visible";
+    }
+    ocultarcaballo = function()
+    {
+      x=document.getElementById("caballo")
+      x.style.visibility="hidden";
+    }
+    verelefante = function()
+    {
+      x=document.getElementById("elefante")
+      x.style.visibility="visible";
+    }
+    ocultarelefante = function()
+    {
+      x=document.getElementById("elefante")
+      x.style.visibility="hidden";
+    }
+    vergallo = function()
+    {
+      x=document.getElementById("gallo")
+      x.style.visibility="visible";
+    }
+    ocultargallo = function()
+    {
+      x=document.getElementById("gallo")
+      x.style.visibility="hidden";
+    }
+    veroveja = function()
+    {
+      x=document.getElementById("oveja")
+      x.style.visibility="visible";
+    }
+    ocultaroveja = function()
+    {
+      x=document.getElementById("oveja")
+      x.style.visibility="hidden";
+    }
+    verpajaro = function()
+    {
+      x=document.getElementById("pajaro")
+      x.style.visibility="visible";
+    }
+    ocultarpajaro = function()
+    {
+      x=document.getElementById("pajaro")
+      x.style.visibility="hidden";
+    }
+    verpato = function()
+    {
+      x=document.getElementById("pato")
+      x.style.visibility="visible";
+    }
+    ocultarpato = function()
+    {
+      x=document.getElementById("pato")
+      x.style.visibility="hidden";
+    }
+    verperro = function()
+    {
+      x=document.getElementById("perro")
+      x.style.visibility="visible";
+    }
+    ocultarperro = function()
+    {
+      x=document.getElementById("perro")
+      x.style.visibility="hidden";
+    }
+    var boton_pulsado=0
+
+    window.addEventListener('gamepadconnected', (event) => {
+      const update = () => {
+        const output = document.getElementById('caballo');
+        output.innerHTML = ''; // clear the output
+
+        for (const gamepad of navigator.getGamepads()) {
+          if (!gamepad) continue;
+          for (const [index, button] of gamepad.buttons.entries()) {
+            if (index == 6 && button.pressed && boton_pulsado!=6){
+              var music = new Audio('sounds/perro.mp3');
+              boton_pulsado=index
+              music.volume = 0.4
+              music.play();
+              ocultarconectar()
+              verperro()
+            }
+            if (button.pressed==false && index == boton_pulsado){
+              boton_pulsado=0
+              ocultarperro()
+            }
+            if (index == 7 && button.pressed && boton_pulsado!=7){
+              var music = new Audio('sounds/oveja.mp3');
+              boton_pulsado=index
+              music.volume = 1
+              music.play();
+              ocultarconectar()
+              veroveja()
+            }
+            if (button.pressed==false && index == boton_pulsado){
+              boton_pulsado=0
+              ocultaroveja()
+            }
+            if (index == 1 && button.pressed && boton_pulsado!=1){
+              var music = new Audio('sounds/pato.mp3');
+              boton_pulsado=index
+              music.volume = 1
+              music.play();
+              ocultarconectar()
+              verpato()
+            }
+            if (button.pressed==false && index == boton_pulsado){
+              boton_pulsado=0
+              ocultarpato()
+            }
+            if (index == 17 && button.pressed && boton_pulsado!=17){
+              var music = new Audio('sounds/pajaro.mp3');
+              boton_pulsado=index
+              music.volume = 1
+              music.play();
+              ocultarconectar()
+              verpajaro()
+            }
+            if (button.pressed==false && index == boton_pulsado){
+              boton_pulsado=0
+              ocultarpajaro()
+            }
+            if (index == 16 && button.pressed && boton_pulsado!=16){
+              var music = new Audio('sounds/gallo.mp3');
+              boton_pulsado=index
+              music.volume = 1
+              music.play();
+              ocultarconectar()
+              vergallo()
+            }
+            if (button.pressed==false && index == boton_pulsado){
+              boton_pulsado=0
+              ocultargallo()
+            }
+            if (index == 14 && button.pressed && boton_pulsado!=14){
+              var music = new Audio('sounds/elefante.mp3');
+              boton_pulsado=index
+              music.volume = 0.4
+              music.play();
+              ocultarconectar()
+              verelefante()
+            }
+            if (button.pressed==false && index == boton_pulsado){
+              boton_pulsado=0
+              ocultarelefante()
+            }
+            if (index == 13 && button.pressed && boton_pulsado!=13){
+              var music = new Audio('sounds/caballo.mp3');
+              boton_pulsado=index
+              music.volume = 0.4
+              music.play();
+              vercaballo()
+              ocultarconectar()
+            }
+            if (button.pressed==false && index == boton_pulsado){
+              boton_pulsado=0
+              ocultarcaballo()
+            }
+
+            output.insertAdjacentHTML('beforeend',
+              `<label>${gamepad.index}, ${index}
+             <progress value=${button.value}></progress>
+             ${button.touched ? 'touched' : ''}
+             ${button.pressed ? 'pressed' : ''}
+           </label>`);
+          }
+        }
+        requestAnimationFrame(update);
+      };
+      update();
+    });
+
+
+  </script>
+</body>
+
+</html>
