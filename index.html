@@ -50,82 +50,22 @@
   <div id="buttons" style="visibility: hidden; flex-direction: column;"></div>
 
   <script>
+    function veranimal(animal){
+      x=document.getElementById(animal)
+      x.style.display="block";
+    }
+    function ocultaranimal(animal){
+      x=document.getElementById(animal)
+      x.style.display="none";
+    }
     ocultarconectar = function()
     {
       x=document.getElementById("pulsaboton")
       x.style.visibility="hidden";
     }
-    vercaballo = function()
-    {
-      x=document.getElementById("caballo")
-      x.style.display="block";
-    }
-    ocultarcaballo = function()
-    {
-      x=document.getElementById("caballo")
-      x.style.display="none";
-    }
-    verelefante = function()
-    {
-      x=document.getElementById("elefante")
-      x.style.display="block";
-    }
-    ocultarelefante = function()
-    {
-      x=document.getElementById("elefante")
-      x.style.display="none";
-    }
-    vergallo = function()
-    {
-      x=document.getElementById("gallo")
-      x.style.display="block";
-    }
-    ocultargallo = function()
-    {
-      x=document.getElementById("gallo")
-      x.style.display="none";
-    }
-    veroveja = function()
-    {
-      x=document.getElementById("oveja")
-      x.style.display="block";
-    }
-    ocultaroveja = function()
-    {
-      x=document.getElementById("oveja")
-      x.style.display="none";
-    }
-    verpajaro = function()
-    {
-      x=document.getElementById("pajaro")
-      x.style.display="block";
-    }
-    ocultarpajaro = function()
-    {
-      x=document.getElementById("pajaro")
-      x.style.display="none";
-    }
-    verpato = function()
-    {
-      x=document.getElementById("pato")
-      x.style.display="block";
-    }
-    ocultarpato = function()
-    {
-      x=document.getElementById("pato")
-      x.style.display="none";
-    }
-    verperro = function()
-    {
-      x=document.getElementById("perro")
-      x.style.display="block";
-    }
-    ocultarperro = function()
-    {
-      x=document.getElementById("perro")
-      x.style.display="none";
-    }
+
     var boton_pulsado=0
+    var animal_pulsado = ""
 
     window.addEventListener('gamepadconnected', (event) => {
       const update = () => {
@@ -141,83 +81,74 @@
               music.volume = 0.4
               music.play();
               ocultarconectar()
-              verperro()
+              animal_pulsado = "perro"
+              veranimal(animal_pulsado)
             }
-            if (button.pressed==false && index == boton_pulsado){
-              boton_pulsado=0
-              ocultarperro()
-            }
+
             if (index == 7 && button.pressed && boton_pulsado!=7){
               var music = new Audio('sounds/oveja.mp3');
               boton_pulsado=index
               music.volume = 1
               music.play();
               ocultarconectar()
-              veroveja()
+              animal_pulsado = "oveja"
+              veranimal(animal_pulsado)
             }
-            if (button.pressed==false && index == boton_pulsado){
-              boton_pulsado=0
-              ocultaroveja()
-            }
+
             if (index == 1 && button.pressed && boton_pulsado!=1){
               var music = new Audio('sounds/pato.mp3');
               boton_pulsado=index
               music.volume = 1
               music.play();
               ocultarconectar()
-              verpato()
+              animal_pulsado = "pato"
+              veranimal(animal_pulsado)
             }
-            if (button.pressed==false && index == boton_pulsado){
-              boton_pulsado=0
-              ocultarpato()
-            }
+
             if (index == 17 && button.pressed && boton_pulsado!=17){
               var music = new Audio('sounds/pajaro.mp3');
               boton_pulsado=index
               music.volume = 1
               music.play();
               ocultarconectar()
-              verpajaro()
+              animal_pulsado = "pajaro"
+              veranimal(animal_pulsado)
             }
-            if (button.pressed==false && index == boton_pulsado){
-              boton_pulsado=0
-              ocultarpajaro()
-            }
+
             if (index == 16 && button.pressed && boton_pulsado!=16){
               var music = new Audio('sounds/gallo.mp3');
               boton_pulsado=index
               music.volume = 1
               music.play();
               ocultarconectar()
-              vergallo()
+              animal_pulsado = "gallo"
+              veranimal(animal_pulsado)
             }
-            if (button.pressed==false && index == boton_pulsado){
-              boton_pulsado=0
-              ocultargallo()
-            }
+
             if (index == 14 && button.pressed && boton_pulsado!=14){
               var music = new Audio('sounds/elefante.mp3');
               boton_pulsado=index
               music.volume = 0.4
               music.play();
               ocultarconectar()
-              verelefante()
+              animal_pulsado = "elefante"
+              veranimal(animal_pulsado)
             }
-            if (button.pressed==false && index == boton_pulsado){
-              boton_pulsado=0
-              ocultarelefante()
-            }
+
+
             if (index == 13 && button.pressed && boton_pulsado!=13){
               var music = new Audio('sounds/caballo.mp3');
               boton_pulsado=index
               music.volume = 0.4
               music.play();
-              vercaballo()
+              animal_pulsado = "caballo"
+              veranimal(animal_pulsado)
+
               ocultarconectar()
             }
-            if (button.pressed==false && index == boton_pulsado){
+            if (button.pressed==false && index == boton_pulsado && "" != animal_pulsado){
               boton_pulsado=0
-              ocultarcaballo()
+              ocultaranimal(animal_pulsado)
             }
 
             output.insertAdjacentHTML('beforeend',
